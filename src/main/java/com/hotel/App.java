@@ -110,29 +110,42 @@ public class App {
      * Processa l'opció seleccionada per l'usuari i crida el mètode corresponent.
      */
     public static void gestionarOpcio(int opcio) {
-       switch(opcio) {
+        
+       
+      
+        switch(opcio) {
         case 1:
             reservarHabitacio();
+           
             break;
-        
         case 2:
             alliberarHabitacio();
+            
             break;
         case 3:
             consultarDisponibilitat();
+          
             break;
         case 4:
             obtindreReserva();
+          
             break;
         case 5:
             obtindreReservaPerTipus();
+            
+            break;
+        case 6:
+           
             break;
 
-     }  while (opcio !=6) {
-        
-     }
+        default:
+            System.out.println("Opció no vàlida");
 
-    }
+        } 
+    } 
+    
+    
+    
 
     /**
      * Gestiona tot el procés de reserva: selecció del tipus d'habitació,
@@ -169,10 +182,11 @@ public class App {
      * els retorna en un ArrayList de String.
      */
     public static ArrayList<String> seleccionarServeis() {
-        //TODO:
-
+     
         return null;
     }
+    
+    
 
     /**
      * Calcula i retorna el cost total de la reserva, incloent l'habitació,
