@@ -220,17 +220,13 @@ public class App {
      */
     public static void consultarDisponibilitat() {
         System.out.println("\n===== CONSULTAR DISPONIBILITAT =====");
-        
-        for (Map.Entry<String, Integer> entrada:disponibilitatHabitacions.entrySet()) {
-        String tipus = entrada.getKey(); //ESTÀNDARD, SUITE, DELUXE
-        int lliures = entrada.getValue();
-         int capacitat = capacitatInicial.get(tipus);
-        int ocupades = capacitat - lliures;
-        System.out.println(tipus + ": LLIURES " + lliures + ", OCUPADES: " + ocupades);
-        }
-    
-    }
+        System.out.println("Tipus\t\tLliures\tOcupades");
 
+
+        mostrarDisponibilitatTipus(TIPUS_ESTANDARD);
+        mostrarDisponibilitatTipus(TIPUS_SUITE);
+        mostrarDisponibilitatTipus(TIPUS_DELUXE);
+    }
 
 
     /**
