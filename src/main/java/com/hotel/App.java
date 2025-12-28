@@ -1,6 +1,7 @@
 package com.hotel;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -143,9 +144,6 @@ public class App {
 
         } 
     } 
-    
-    
-    
 
     /**
      * Gestiona tot el procés de reserva: selecció del tipus d'habitació,
@@ -182,8 +180,10 @@ public class App {
      * els retorna en un ArrayList de String.
      */
     public static ArrayList<String> seleccionarServeis() {
-     
+      
+        
         return null;
+    
     }
     
     
@@ -219,8 +219,32 @@ public class App {
      * Mostra la disponibilitat actual de les habitacions (lliures i ocupades).
      */
     public static void consultarDisponibilitat() {
+        System.out.println("\n===== CONSULTAR DISPONIBILITAT =====");
         // TODO: Mostrar lliures i ocupades
+
+        HashMap<String, Integer> disponibilitatHabitacions = new HashMap<String, Integer>();
+    /**
+     * Mostra les parelles clau-valor
+     */
+        disponibilitatHabitacions.put("ESTÀNDARD", 30);
+        disponibilitatHabitacions.put("SUITE", 20);
+        disponibilitatHabitacions.put("DELUXE", 10);
+
+
+        int CAPACITAT_ESTANDARD =  disponibilitatHabitacions.get("ESTÀNDARD");
+        int CAPACITAT_SUITE = disponibilitatHabitacions.get("SUITE");
+        int CAPACITAT_DELUXE = disponibilitatHabitacions.get("DELUXE");
+       
+
+        for (Map.Entry<String, Integer> entrada:disponibilitatHabitacions.entrySet()) {
+        String clau = entrada.getKey();
+        int valor = entrada.getValue();
+        System.out.println(clau + ": LLIURES " + valor);
+        }
+    
     }
+
+
 
     /**
      * Funció recursiva. Mostra les dades de totes les reserves
@@ -245,7 +269,13 @@ public class App {
      */
     public static void obtindreReservaPerTipus() {
         System.out.println("\n===== CONSULTAR RESERVES PER TIPUS =====");
-        // TODO: Llistar reserves per tipus
+   
+      
+
+
+
+
+
     }
 
     /**
