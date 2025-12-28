@@ -111,8 +111,6 @@ public class App {
      * Processa l'opció seleccionada per l'usuari i crida el mètode corresponent.
      */
     public static void gestionarOpcio(int opcio) {
-        
-       
       
         switch(opcio) {
         case 1:
@@ -202,8 +200,15 @@ public class App {
      * (entre 100 i 999) que no estiga repetit.
      */
     public static int generarCodiReserva() {
-        //TODO:
-        return 0;
+        int max = 999;
+        int min = 100;
+        int numero;
+
+       do{ 
+        numero = random.nextInt(max - min + 1) + 100; //Numero entre 100 y 999
+
+       } while (reserves.containsKey(numero));
+        return numero;
     }
 
     /**
