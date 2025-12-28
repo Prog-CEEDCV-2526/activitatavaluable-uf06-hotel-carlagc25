@@ -158,8 +158,27 @@ public class App {
      * retorna el nom del tipus.
      */
     public static String seleccionarTipusHabitacio() {
-        //TODO:
-        return null;
+        
+        System.out.println("1. Estàndard");
+        System.out.println("2. Suite");
+        System.out.println("3. Deluxe");
+        
+        int opcio = llegirEnter("Seleccione tipus d'habitació: ");
+
+        switch (opcio) {
+            case 1:
+                return TIPUS_ESTANDARD;
+                
+            case 2:
+                return TIPUS_SUITE;
+
+            case 3:
+                return TIPUS_DELUXE;
+                
+            default:
+                System.out.println("Opció no vàlida");
+                return null;
+        }
     }
 
     /**
@@ -204,7 +223,7 @@ public class App {
 
         return total; 
     }
-    
+
     /**
      * Genera i retorna un codi de reserva únic de tres xifres
      * (entre 100 i 999) que no estiga repetit.
