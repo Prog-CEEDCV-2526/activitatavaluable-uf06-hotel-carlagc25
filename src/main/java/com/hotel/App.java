@@ -193,15 +193,18 @@ public class App {
     public static float calcularPreuTotal(String tipusHabitacio, ArrayList<String> serveisSeleccionats) { 
         float total = 0;
         float IVA = 0.21f; 
-        total = preusHabitacions.get(tipusHabitacio);
+        total += preusHabitacions.get(tipusHabitacio); //Preu de la habitació
         
         
-        for (String serveis : serveisSeleccionats)
-        total = preusServeis.get(serveisSeleccionats);
-        
-        total = total + (total * IVA);
+        for (String servei : serveisSeleccionats){ //Recorrer la llista de serveis seleccionats i sumar-los
+        total += preusServeis.get(servei);
+        }
+
+        total = total + (total * IVA); //Aplicar el IVA al total
+
         return total; 
     }
+    
     /**
      * Genera i retorna un codi de reserva únic de tres xifres
      * (entre 100 i 999) que no estiga repetit.
