@@ -190,11 +190,18 @@ public class App {
      * Calcula i retorna el cost total de la reserva, incloent l'habitació,
      * els serveis seleccionats i l'IVA.
      */
-    public static float calcularPreuTotal(String tipusHabitacio, ArrayList<String> serveisSeleccionats) {
-        //TODO:
-        return 0;
+    public static float calcularPreuTotal(String tipusHabitacio, ArrayList<String> serveisSeleccionats) { 
+        float total = 0;
+        float IVA = 0.21f; 
+        total = preusHabitacions.get(tipusHabitacio);
+        
+        
+        for (String serveis : serveisSeleccionats)
+        total = preusServeis.get(serveisSeleccionats);
+        
+        total = total + (total * IVA);
+        return total; 
     }
-
     /**
      * Genera i retorna un codi de reserva únic de tres xifres
      * (entre 100 i 999) que no estiga repetit.
