@@ -220,26 +220,13 @@ public class App {
      */
     public static void consultarDisponibilitat() {
         System.out.println("\n===== CONSULTAR DISPONIBILITAT =====");
-        // TODO: Mostrar lliures i ocupades
-
-        HashMap<String, Integer> disponibilitatHabitacions = new HashMap<String, Integer>();
-    /**
-     * Mostra les parelles clau-valor
-     */
-        disponibilitatHabitacions.put("ESTÀNDARD", 30);
-        disponibilitatHabitacions.put("SUITE", 20);
-        disponibilitatHabitacions.put("DELUXE", 10);
-
-
-        int CAPACITAT_ESTANDARD =  disponibilitatHabitacions.get("ESTÀNDARD");
-        int CAPACITAT_SUITE = disponibilitatHabitacions.get("SUITE");
-        int CAPACITAT_DELUXE = disponibilitatHabitacions.get("DELUXE");
-       
-
+        
         for (Map.Entry<String, Integer> entrada:disponibilitatHabitacions.entrySet()) {
-        String clau = entrada.getKey();
-        int valor = entrada.getValue();
-        System.out.println(clau + ": LLIURES " + valor);
+        String tipus = entrada.getKey(); //ESTÀNDARD, SUITE, DELUXE
+        int lliures = entrada.getValue();
+         int capacitat = capacitatInicial.get(tipus);
+        int ocupades = capacitat - lliures;
+        System.out.println(tipus + ": LLIURES " + lliures + ", OCUPADES: " + ocupades);
         }
     
     }
