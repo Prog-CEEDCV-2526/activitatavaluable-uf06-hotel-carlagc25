@@ -223,7 +223,7 @@ public class App {
         ArrayList<String> serveis = new ArrayList<>();
        
         do{
-            System.out.println("Vol afegir un servei?");
+            System.out.println("Vol afegir un servei? (s/n)");
             resposta = sc.next();
 
             if (resposta.equalsIgnoreCase("s")) {
@@ -252,7 +252,8 @@ public class App {
             System.out.println("Servei afegit: Piscina");
            
            default:
-                System.out.println("Opció no vàlida");
+            System.out.println("Opció no vàlida");
+                
                 }
             }
 
@@ -335,9 +336,20 @@ public class App {
      */
     public static void obtindreReserva() {
         System.out.println("\n===== CONSULTAR RESERVA =====");
-        // TODO: Mostrar dades d'una reserva concreta
- 
+        int numero = 0;
+        
+          numero = llegirEnter("Introdueix el codi de reserva: ");
+        
+         if(reserves.containsKey(numero)) {
+            mostrarDadesReserva(numero);
+
+         } else {
+
+         System.out.println("No s'ha trobat cap reserva amb aquest codi.");
+        }
     }
+
+    
 
     /**
      * Mostra totes les reserves existents per a un tipus d'habitació
