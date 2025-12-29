@@ -223,26 +223,33 @@ public class App {
        
         do{
             opcio = llegirEnter("Vol afegir un servei?");
-
-            if (opcio == 1) {
+            
+            switch (opcio) { 
+            
+           case 0:
+            break;
+        
+           case 1:
             serveis.add(SERVEI_ESMORZAR); 
             System.out.println("Servei afegit: Esmorzar");
 
-            } if (opcio == 2) {
+           case 2:
             serveis.add(SERVEI_GIMNAS);
             System.out.println("Servei afegit: Gimnàs");
 
-             } if (opcio == 3) {
+            case 3:
             serveis.add(SERVEI_SPA);
             System.out.println("Servei afegit: Spa");
 
-            } if (opcio == 4) {
+           case 4:
             serveis.add(SERVEI_PISCINA);
             System.out.println("Servei afegit: Piscina");
            
-            }
+           default:
+                System.out.println("Opció no vàlida");
+                }
 
-            }   while (opcio != 0);
+            } while (opcio != 0);
             
         
             return serveis;
