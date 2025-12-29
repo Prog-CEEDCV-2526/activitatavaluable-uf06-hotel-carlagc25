@@ -188,8 +188,21 @@ public class App {
      */
     public static String seleccionarTipusHabitacioDisponible() {
         System.out.println("\nTipus d'habitació disponibles:");
-        //TODO:
-        return null;
+        System.out.println("Estàndard: " + disponibilitatHabitacions.get(TIPUS_ESTANDARD));
+        System.out.println("Suite: " + disponibilitatHabitacions.get(TIPUS_SUITE));
+        System.out.println("Deluxe: " + disponibilitatHabitacions.get(TIPUS_DELUXE));
+        
+        
+        String tipusHabitacio = seleccionarTipusHabitacio();
+
+        if (disponibilitatHabitacions.get(tipusHabitacio) > 0) { 
+            return tipusHabitacio;
+
+        } else {
+            System.out.println("No hi ha disponibilitat");
+            return null;
+
+        }
     }
 
     /**
