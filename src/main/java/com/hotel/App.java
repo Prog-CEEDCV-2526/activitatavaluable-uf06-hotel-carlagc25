@@ -218,13 +218,19 @@ public class App {
         System.out.println("3. Spa (20€)");
         System.out.println("4. Piscina (25€)");
 
-        int opcio = 0;
+        int opcio;
+        String resposta;
         ArrayList<String> serveis = new ArrayList<>();
        
         do{
-            opcio = llegirEnter("Vol afegir un servei?");
+            System.out.println("Vol afegir un servei?");
+            resposta = sc.next();
+
+            if (resposta.equalsIgnoreCase("s")) {
+                opcio = llegirEnter("Seleccione servei: ");
             
-            switch (opcio) { 
+            
+                switch (opcio) { 
             
            case 0:
             break;
@@ -248,8 +254,9 @@ public class App {
            default:
                 System.out.println("Opció no vàlida");
                 }
+            }
 
-            } while (opcio != 0);
+            } while (resposta.equalsIgnoreCase("s"));
             
         
             return serveis;
