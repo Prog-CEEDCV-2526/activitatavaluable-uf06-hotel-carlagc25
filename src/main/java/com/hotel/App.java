@@ -211,11 +211,43 @@ public class App {
      */
     public static ArrayList<String> seleccionarServeis() {
       
+        System.out.println("Serveis adicionals (0-4): ");
+        System.out.println("0. Finalitzar");
+        System.out.println("1. Esmorzar (10€)");
+        System.out.println("2. Gimnàs (15€)");
+        System.out.println("3. Spa (20€)");
+        System.out.println("4. Piscina (25€)");
+
+        int opcio = 0;
+        ArrayList<String> serveis = new ArrayList<>();
+       
+        do{
+            opcio = llegirEnter("Vol afegir un servei?");
+
+            if (opcio == 1) {
+            serveis.add(SERVEI_ESMORZAR); 
+            System.out.println("Servei afegit: Esmorzar");
+
+            } if (opcio == 2) {
+            serveis.add(SERVEI_GIMNAS);
+            System.out.println("Servei afegit: Gimnàs");
+
+             } if (opcio == 3) {
+            serveis.add(SERVEI_SPA);
+            System.out.println("Servei afegit: Spa");
+
+            } if (opcio == 4) {
+            serveis.add(SERVEI_PISCINA);
+            System.out.println("Servei afegit: Piscina");
+           
+            }
+
+            }   while (opcio != 0);
+            
         
-        return null;
-    
+            return serveis;
+
     }
-    
     
 
     /**
