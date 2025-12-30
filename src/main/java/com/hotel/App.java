@@ -359,12 +359,33 @@ public class App {
         System.out.println("\n===== CONSULTAR RESERVES PER TIPUS =====");
    
       
+      
+      String tipus = seleccionarTipusHabitacio();
 
+        if (tipus == null) return;
+        
+        System.out.println("Reserves del tipus: " + tipus);
+        
+        boolean trobada = false;
+        
+        for (int numero : reserves.keySet()) {
+           
+           ArrayList<String> reserva= reserves.get(numero);
 
-
-
-
+       if (reserva.get(0).equals(tipus)) {
+            mostrarDadesReserva(numero);
+            trobada = true;
+            }
+        }
+        
+        if (!trobada) {
+            System.out.println("No hi ha reserves d'aquest tipus");
+        } else {
+            System.out.println("No hi ha més reserves d'aquest tipus");
+        }
     }
+
+    
 
     /**
      * Consulta i mostra en detall la informació d'una reserva.
