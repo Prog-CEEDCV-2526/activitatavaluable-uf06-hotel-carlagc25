@@ -357,14 +357,12 @@ public class App {
      */
     public static void obtindreReservaPerTipus() {
         System.out.println("\n===== CONSULTAR RESERVES PER TIPUS =====");
-   
-      
       
       String tipus = seleccionarTipusHabitacio();
 
         if (tipus == null) return;
         
-        System.out.println("Reserves del tipus: " + tipus);
+        System.out.println("Reserves del tipus: \"" + tipus + "\" :\n"); 
         
         boolean trobada = false;
         
@@ -379,9 +377,9 @@ public class App {
         }
         
         if (!trobada) {
-            System.out.println("No hi ha reserves d'aquest tipus");
+            System.out.println("(No hi ha reserves d'aquest tipus.)");
         } else {
-            System.out.println("No hi ha més reserves d'aquest tipus");
+            System.out.println("(No hi ha més reserves d'aquest tipus.)");
         }
     }
 
