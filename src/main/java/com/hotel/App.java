@@ -149,9 +149,63 @@ public class App {
      */
     public static void reservarHabitacio() {
         System.out.println("\n===== RESERVAR HABITACIÓ =====");
-        //TODO:
         
-    }
+        String tipus = seleccionarTipusHabitacioDisponible();
+
+        if (tipus == null)
+            return; // Eixir del mètode si el tipus de habitació és erroni
+      
+        
+            ArrayList<String> serveis = seleccionarServeis(); //Seleccionar els serveis adicionals
+            int numero = generarCodiReserva();
+
+            //Calcular preu
+
+            float preuHabitacio = preusHabitacions.get(tipus);
+
+            float subtotal = preuHabitacio;
+            for (String servei : serveis) {
+                subtotal += preusServeis.get (servei);
+
+            }
+
+                float iva = subtotal * IVA;
+                float total = subtotal + iva;
+
+            System.out.println("Calculem el total...");
+            System.out.println("Preu habitació: " + preuHabitacio + "€" );
+            
+
+
+                if (serveis.isEmpty()) {
+                    System.out.println("Ningún");
+
+                }else {
+                    for (String servei : serveis) {
+                    System.out.println(servei + "(" + preusServeis.get(servei) + "€) ") ;
+                }
+            }
+
+            System.out.println("Subtotal: " + subtotal + "€");
+            System.out.println("IVA (21%): " + iva + "€");
+            System.out.println("TOTAL: " + total + "€");
+
+                
+
+            ArrayList<String> reserva = new ArrayList<>(); //Crear reserva: añadir el tipus d'habitació y els serveis
+                reserva.add(tipus);
+                reserva.addAll(serveis);
+
+            reserves.put(numero, reserva); //Guardar la reserva
+    
+            disponibilitatHabitacions.put(   //Restar disponibilitat
+                tipus, disponibilitatHabitacions.get(tipus) -1);
+
+                System.out.println("Reserva creada amb èxit!");
+
+                System.out.println("Codi de reserva: " + numero);
+        }
+
 
     /**
      * Pregunta a l'usuari un tipus d'habitació en format numèric i
@@ -238,18 +292,22 @@ public class App {
            case 1:
             serveis.add(SERVEI_ESMORZAR); 
             System.out.println("Servei afegit: Esmorzar");
+            break;
 
            case 2:
             serveis.add(SERVEI_GIMNAS);
             System.out.println("Servei afegit: Gimnàs");
+            break;
 
             case 3:
             serveis.add(SERVEI_SPA);
             System.out.println("Servei afegit: Spa");
+            break;
 
            case 4:
             serveis.add(SERVEI_PISCINA);
             System.out.println("Servei afegit: Piscina");
+            break;
            
            default:
             System.out.println("Opció no vàlida");
