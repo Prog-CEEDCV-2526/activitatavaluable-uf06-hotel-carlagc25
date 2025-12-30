@@ -362,7 +362,7 @@ public class App {
 
         if (tipus == null) return;
         
-        System.out.println("Reserves del tipus: \"" + tipus + "\" :\n"); 
+        System.out.println("Reserves del tipus: \"" + tipus + "\":"); 
         
         boolean trobada = false;
         
