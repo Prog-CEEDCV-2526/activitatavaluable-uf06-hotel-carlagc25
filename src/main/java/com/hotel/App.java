@@ -328,7 +328,27 @@ public class App {
      * associades a un tipus d'habitació.
      */
     public static void llistarReservesPerTipus(int[] codis, String tipus) {
-         // TODO: Implementar recursivitat
+         
+          if (codis.length == 0) {  // Finalitzar el métode al arribar a 0
+            return;
+        }
+       
+
+             int codi = codis[0];
+            ArrayList<String> reserva = reserves.get(codi);
+
+            if (reserva.get(0).equals(tipus)) { //Mostrar la reserva
+                mostrarDadesReserva(codi);
+            }
+        
+            int[] resta = new int [codis.length -1]; // Array per a mostrar cada vegada tots els codis menys el primer
+            for (int i = 1; i <codis.length; i++) {
+                resta [i - 1] = codis [i];
+            }
+        
+            llistarReservesPerTipus(resta, tipus);
+
+           
     }
 
     /**
