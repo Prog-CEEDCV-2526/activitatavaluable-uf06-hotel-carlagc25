@@ -197,7 +197,11 @@ public class App {
                 reserva.addAll(serveis);
 
             reserves.put(numero, reserva); //Guardar la reserva
-    
+            
+            /**
+             * Accedir al total del mateix tipus d'habitació,
+             * restar-li 1 al total y guardar.
+             */
             disponibilitatHabitacions.put(   //Restar disponibilitat
                 tipus, disponibilitatHabitacions.get(tipus) -1);
 
@@ -364,8 +368,31 @@ public class App {
      */
     public static void alliberarHabitacio() {
         System.out.println("\n===== ALLIBERAR HABITACIÓ =====");
-         // TODO: Demanar codi, tornar habitació i eliminar reserva
-    }
+         
+        int numero = llegirEnter("Introdueix el codi de reserva: ");
+
+        //Comprovar si existeix la reserva
+        if (!reserves.containsKey(numero)) {
+            System.out.println("No s'ha trobat cap reserva amb aquest codi.");
+            return;
+        }
+        //Si existix la reserva, accedir a la habitació per el seu codi
+        ArrayList<String> reserva = reserves.get(numero);
+         String tipus = reserva.get(0); 
+
+        //Eliminar una reserva
+
+        reserves.remove(numero);
+
+        /**
+         * Actualizar disponibilitat y
+         * guardar un tipus d'habitació nova en el total del seu mateix tipus
+         */
+       
+        disponibilitatHabitacions.put (tipus, disponibilitatHabitacions.get(tipus) + 1);
+         System.out.println("Habitació alliberada correctament.");
+        
+    }   
 
     /**
      * Mostra la disponibilitat actual de les habitacions (lliures i ocupades).
