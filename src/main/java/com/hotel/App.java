@@ -379,6 +379,7 @@ public class App {
         //Si existix la reserva, accedir a la habitació per el seu codi
         ArrayList<String> reserva = reserves.get(numero);
          String tipus = reserva.get(0); 
+         System.out.println("Reserva trobada!");
 
         //Eliminar una reserva
 
@@ -391,6 +392,7 @@ public class App {
        
         disponibilitatHabitacions.put (tipus, disponibilitatHabitacions.get(tipus) + 1);
          System.out.println("Habitació alliberada correctament.");
+         System.out.println("Disponibilitat actualitzada.");
         
     }   
 
@@ -494,7 +496,42 @@ public class App {
      * Consulta i mostra en detall la informació d'una reserva.
      */
     public static void mostrarDadesReserva(int codi) {
-       // TODO: Imprimir tota la informació d'una reserva
+       
+       
+        //Comprovar si la reserva existeix
+
+       if (!reserves.containsKey(codi)) {
+            System.out.println("No s'ha trobat cap reserva amb aquest codi.");
+            return;
+       }
+        //Obtindre el codi de la reserva si existeix i el tipus d'habitació
+       ArrayList<String> reserva =reserves.get(codi);
+       System.out.println("Dades de la reserva: ");
+       
+       String tipus = reserva.get(0);
+       System.out.println("Tipus d'habitació: " + tipus);
+        
+        //Mostrar els serveis adicionals a través del ArrayList
+       ArrayList<String> serveis = new ArrayList<>();
+       for(int i =1; i< reserva.size(); i++) {
+        serveis.add(reserva.get(i));
+       }
+
+       //Calcular el preu total
+        float total = calcularPreuTotal(tipus, serveis);
+        System.out.println("Cost total: " + total + "€");
+
+       
+        System.out.println("Serveis adicionals:");
+        if (serveis.isEmpty()) {
+            System.out.println("Ningún");
+        } else {
+            for (String servei : serveis) {
+                System.out.println(servei);
+            }
+
+       }
+
     }
 
     // --------- MÈTODES AUXILIARS (PER MILLORAR LEGIBILITAT) ---------
